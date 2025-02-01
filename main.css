@@ -8,6 +8,7 @@
 html, body {
     height: 100%;
     width: 100%;
+    overflow-x: hidden;
 }
 
 .container {
@@ -20,41 +21,43 @@ html, body {
 
 .paperHeart {
     position: absolute;
-    height: 100px;
-    top: 80%;
+    height: 40px;
+    top: 70%;
     opacity: 0;
-    filter: drop-shadow(0 0 20px rgb(247, 176, 176));
+    filter: drop-shadow(0 0 10px rgb(247, 176, 176));
     animation: hiddenHeart 3.1s linear forwards, flyHeart 4s ease-in-out calc(var(--time) + 3.1s) infinite;
+    z-index: 5;
 }
 
-.paperHeart1 { left: 50px; }
-.paperHeart2 { left: 250px; }
-.paperHeart3 { left: 500px; }
-.paperHeart4 { left: 800px; }
-.paperHeart5 { left: 1100px; }
-.paperHeart6 { left: 1400px; }
+.paperHeart1 { left: 5% !important; }
+.paperHeart2 { left: 20% !important; }
+.paperHeart3 { left: 35% !important; }
+.paperHeart4 { left: 50% !important; }
+.paperHeart5 { left: 65% !important; }
+.paperHeart6 { left: 80% !important; }
 
 .boxTitle {
     position: absolute;
-    top: 10%;
+    top: 5%;
     left: 50%;
     transform: translateX(-50%);
     font-family: "Rubik Glitch Pop", system-ui;
-    font-size: 60px;
+    font-size: clamp(24px, 8vw, 60px);
     color: pink;
     text-align: center;
-    text-shadow: 0 0 20px white;
+    text-shadow: 0 0 10px white;
+    white-space: nowrap;
 }
 
 .partTitle {
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 .boxCloud {
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 300px;
+    height: 200px;
     width: 100%;
     background-color: transparent;
 }
@@ -63,35 +66,30 @@ html, body {
     position: absolute;
     top: 120%;
     left: -50px;
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
     background-color: #ffb3c1;
     border-radius: 50%;
-    box-shadow: 120px -20px #ffb3c1, 240px -40px #ffb3c1, 360px -20px #ffb3c1,
-    480px 0px #ffb3c1, 600px -10px #ffb3c1, 720px 10px #ffb3c1, 840px 20px #ffb3c1, 
-    960px 0px #ffb3c1, 1080px 40px #ffb3c1, 1200px 20px #ffb3c1, 1320px 0px #ffb3c1,
-    1440px -20px #ffb3c1;
-    transition: .8s;
+    box-shadow: 60px -20px #ffb3c1, 120px -40px #ffb3c1, 180px -20px #ffb3c1,
+    240px 0px #ffb3c1, 300px -10px #ffb3c1, 360px 10px #ffb3c1;
     animation: animateCloud 3s ease-in-out infinite;
 }
 
 .cloud1 {
-    top: 75px;
+    top: 50px;
     background-color: #ffccd5;
     animation-delay: 1.5s;
 }
 
 .cloud2 {
-    top: 150px;
+    top: 100px;
     background-color: white;
     animation-delay: 2s;
 }
 
 @keyframes animateCloud {
     0% { top: 0; }
-    25% { top: 10px; }
-    50% { top: -10px; }
-    75% { top: 10px; }
+    50% { top: 20px; }
     100% { top: 0; }
 }
 
@@ -100,54 +98,36 @@ html, body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 160px;
-    width: 400px;
+    height: 80px;
+    width: 80%;
+    max-width: 300px;
     opacity: 1;
 }
 
 .cloudBtn {
     position: relative;
-    height: 100px;
-    width: 100px;
+    height: 60px;
+    width: 60px;
     background-color: #fc6885;
     border-radius: 50%;
-    box-shadow: 60px 0 #fc6885, 120px 0 #fc6885, 180px 0 #fc6885, 240px 0 #fc6885,
-    300px 0 #fc6885, 300px 60px #fc6885, 240px 60px #fc6885, 180px 60px #fc6885,
-    120px 60px #fc6885, 60px 60px #fc6885, 0 60px #fc6885;
+    box-shadow: 30px 0 #fc6885, 60px 0 #fc6885, 90px 0 #fc6885,
+    120px 0 #fc6885, 150px 0 #fc6885, 150px 30px #fc6885,
+    120px 30px #fc6885, 90px 30px #fc6885, 60px 30px #fc6885,
+    30px 30px #fc6885, 0 30px #fc6885;
 }
 
 .cloudBtn::before {
-    position: absolute;
-    content: "";
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 80px;
-    width: 80px;
-    background-color: white;
-    border-radius: 50%;
-    box-shadow: 60px 0 white, 120px 0 white, 180px 0 white, 240px 0 white,
-    300px 0 white, 300px 60px white, 240px 60px white, 180px 60px white,
-    120px 60px white, 60px 60px white, 0 60px white;
+    height: 50px;
+    width: 50px;
+    box-shadow: 30px 0 white, 60px 0 white, 90px 0 white,
+    120px 0 white, 150px 0 white, 150px 30px white,
+    120px 30px white, 90px 30px white, 60px 30px white,
+    30px 30px white, 0 30px white;
 }
 
 .openBtn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    font-family: "Rubik Glitch Pop", system-ui;
-    font-size: 40px;
-    color: #fc6885;
-    background-color: transparent;
-    border: none;
-    text-shadow: 0 0 10px pink;
-}
-
-.openBtn:hover {
-    cursor: grab;
+    font-size: clamp(20px, 6vw, 40px);
+    cursor: pointer;
 }
 
 .cardValentine {
@@ -156,247 +136,92 @@ html, body {
     left: 50%;
     opacity: 0;
     transform: translate(-50%, -50%);
-    height: 600px;
-    width: 800px;
+    height: 80vh;
+    width: 90%;
+    max-width: 400px;
     background-color: transparent;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .cardValentine.active {
     top: 50%;
     opacity: 1;
-    animation: animateCard 2s ease-in-out forwards;
 }
 
 .cardValentine .left {
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    height: 100%;
-    width: 50%;
-    border-radius: 10px;
-    transition: .5s;
-    padding: 20px;
-}
-
-.cardValentine .left .leftFront {
-    position: absolute;
-    top: 0;
+    width: 100%;
+    height: 50%;
     left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #f35553;
-    border-radius: inherit;
-    transition: .5s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 10px lightgray;
-    border-left: 10px solid #c9413f;
-}
-
-.boxShadow {
-    filter: drop-shadow(0 0 10px white);
-    height: fit-content;
-    width: fit-content;
-}
-
-.boxTitleCard {
-    position: relative;
-    height: 300px;
-    width: 300px;
-    display: flex;
-    justify-content: center;
-    background-color: white;
-    clip-path: polygon(10% 0, 35% 0, 50% 23%, 65% 0, 90% 0, 100% 30%, 50% 100%, 0 30%);
-}
-
-.boxTitleCard::before {
-    position: absolute;
-    content: "";
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 280px;
-    width: 280px;
-    background-color: #f35553;
-    clip-path: polygon(10% 0, 35% 0, 50% 23%, 65% 0, 90% 0, 100% 30%, 50% 100%, 0 30%);
-}
-
-.boxTitleCard::after {
-    position: absolute;
-    content: "";
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 250px;
-    width: 250px;
-    background-color: white;
-    clip-path: polygon(10% 0, 35% 0, 50% 23%, 65% 0, 90% 0, 100% 30%, 50% 100%, 0 30%);
-}
-
-.titleCard {
-    font-family: "Protest Revolution", sans-serif;
-    font-size: 60px;
-    color: #f35553;
-    margin-top: 80px;
-}
-
-.cardValentine .left .leftBack {
-    position: absolute;
     top: 0;
-    left: 0;
-    transform: rotateY(180deg);
-    backface-visibility: hidden;
-    background-color: #f35553;
-    height: 100%;
-    width: 100%;
-    border-radius: inherit;
-    border-right: 10px solid #c9413f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: .5s;
-}
-
-.artHeart {
-    width: 90%;
-    height: auto;
-    filter: drop-shadow(0 0 5px white);
-}
-
-.des {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: "Protest Revolution", sans-serif;
-    font-size: 24px;
-    width: 100%;
-    text-align: center;
 }
 
 .cardValentine .right {
-    z-index: 1;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    height: 100%;
-    width: 50%;
-    background-color: #f35553;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-left: 10px solid #c9413f;
-    transition: .5s;
+    width: 100%;
+    height: 50%;
+    left: 0;
+    top: 50%;
+    border-left: none;
+    border-top: 10px solid #c9413f;
+}
+
+.boxTitleCard {
+    height: 120px;
+    width: 120px;
+}
+
+.boxTitleCard::before {
+    height: 110px;
+    width: 110px;
+}
+
+.boxTitleCard::after {
+    height: 100px;
+    width: 100px;
+}
+
+.titleCard {
+    font-size: 30px;
+    margin-top: 40px;
+}
+
+.des {
+    font-size: 14px;
+    bottom: 20px;
 }
 
 .rightContent {
-    font-size: 20px;
-    height: 95%;
-    width: 90%;
-    background-color: wheat;
-    border-radius: 5px;
-    padding: 20px 15px;
-    overflow: auto;
-}
-
-.rightContent::-webkit-scrollbar {
-    background-color: white;
-    width: 6px;
-}
-
-.rightContent::-webkit-scrollbar-thumb {
-    background-color: #d34745;
-}
-
-.letterContent {
-    font-family: "Pacifico", cursive;
-}
-
-@keyframes appearTitle {
-    to { top: 10%; }
-}
-
-@keyframes floatingWords {
-    0% { transform: translateX(-50%); }
-    25% { transform: translateX(-50%) translateY(-50px); }
-    50% { transform: translateX(-50%) translateY(50px); }
-    75% { transform: translateX(-50%) translateY(0); }
+    font-size: 12px;
+    padding: 15px;
 }
 
 @keyframes flyHeart {
-    to { top: -20%; }
+    to { top: -10%; }
 }
 
 @keyframes hiddenHeart {
-    0% { opacity: 0; }
-    95% { opacity: 0; }
+    0%, 95% { opacity: 0; }
     100% { opacity: 1; }
 }
 
-@keyframes animateCard {
-    from { top: 200%; }
-    to { top: 50%; }
-}
-
-/* Media query cho điện thoại */
-@media only screen and (max-width: 768px) {
-    .boxTitle {
-        font-size: 40px;
-        top: 5%;
-    }
-
-    .partTitle {
-        margin: 5px 0;
-    }
-
-    .paperHeart {
-        height: 60px;
-    }
-
-    .paperHeart1 { left: 10px; }
-    .paperHeart2 { left: 100px; }
-    .paperHeart3 { left: 200px; }
-    .paperHeart4 { left: 300px; }
-    .paperHeart5 { left: 400px; }
-    .paperHeart6 { left: 500px; }
-
-    .boxCloud {
-        height: 200px;
-    }
-
-    .cloud, .cloud1, .cloud2 {
-        height: 150px;
-        width: 150px;
-    }
-
-    .btnBox {
-        width: 250px;
-        height: 100px;
-    }
-
-    .openBtn {
-        font-size: 20px;
-    }
-
+@media (orientation: landscape) {
     .cardValentine {
-        width: 90%;
-        height: auto;
+        max-width: 600px;
+        height: 90vh;
     }
-
-    .boxTitleCard {
-        height: 150px;
-        width: 150px;
+    
+    .cardValentine .left {
+        width: 50%;
+        height: 100%;
+        left: 0;
+        top: 0;
     }
-
-    .des {
-        font-size: 16px;
-    }
-
-    .rightContent {
-        font-size: 14px;
+    
+    .cardValentine .right {
+        width: 50%;
+        height: 100%;
+        left: 50%;
+        top: 0;
+        border-left: 10px solid #c9413f;
+        border-top: none;
     }
 }
